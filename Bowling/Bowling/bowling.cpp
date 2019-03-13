@@ -8,9 +8,9 @@ using std::endl;
 
 int main(int argc, char** argv) {
 	// Test Section //
-	testInput();
-	testScore();
-	testPrint();
+	//testInput();
+	//testScore();
+	//testPrint();
 	////////////////////
 
 	 //Game Flow //
