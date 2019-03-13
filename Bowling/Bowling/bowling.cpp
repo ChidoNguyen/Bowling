@@ -1,3 +1,6 @@
+/*Chido Nguyen
+Bowling Score App
+*/
 #include <iostream>
 #include "bowlinghelp.h"
 #include "testbowling.h"
@@ -21,6 +24,7 @@ int main(int argc, char** argv) {
 	int roundCount = 1;
 	frame* gameFrames = new frame[10];
 	while (roundCount <= 10) {
+		cout << "Enter Score:" << endl;
 		cin >> scoreInput;
 
 		processInput(scoreInput, gameFrames, roundCount);
