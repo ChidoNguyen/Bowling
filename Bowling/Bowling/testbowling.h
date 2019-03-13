@@ -7,6 +7,12 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+/*
+testInput: testing(processInput)
+-Testing to see if throws are added appropriately to our frame structure of ballone and balltwo
+-Testing to see if our frames register and stores where strikes and spares are achieved
+-Testing frame 10 input to see if third attempts are documented correctly
+*/
 void testInput() {
 	int roundCount = 1;
 	frame* gameFrames = new frame[10];
@@ -99,7 +105,13 @@ void testInput() {
 	cout << test3p << " of 3 tests PASSED." << endl << endl;
 
 }
-
+/*
+testScore: Testing (process_Score)
+-Generated own potential game score card
+-Used generated score as userInput to fill our gameFrames
+-Key test is to document if our process_score calculates each frame score correctly for open frames / strikes and spares.
+-Test checks calculated score against expectedFrameScore[]
+*/
 void testScore() {
 
 	int roundCount = 1;
@@ -146,10 +158,14 @@ void testScore() {
 	cout << "Test Case Frame Scores: Correct Frame Scores are recorded." << endl;
 	cout << testpass << " out of 10 frames test PASSED." << endl << endl;
 }
-
+/*
+testScore: testing(printScore)
+-Testing to see if strikes and spares are ignored properly until the correct frames have been played
+-Expected Final Score output 300 perfect game / conditions 2 = 148 / c3 = 84
+*/
 void testPrint() {
 	frame * gameFrames = new frame[10];
-	char score1[2] = { 'X','\0' };
+	/*char score1[2] = { 'X','\0' };
 	char score2[2] = { 'X','\0' };
 	char score3[2] = { 'X','\0' };
 	char score4[2] = { 'X','\0' };
@@ -158,7 +174,30 @@ void testPrint() {
 	char score7[2] = { 'X','\0' };
 	char score8[2] = { 'X','\0' };
 	char score9[2] = { 'X','\0' };
-	char score10[4] ={ 'X','X','X','\0' };
+	char score10[4] ={ 'X','X','X','\0' };*/
+	
+	/*char score1[2] = { 'X','\0' };
+	char score2[3] = { '1','5','\0' };
+	char score3[2] = { 'X','\0' };
+	char score4[3] = { '1','5','\0' };
+	char score5[2] = { 'X','\0' };
+	char score6[3] = { '1','5','\0' };
+	char score7[2] = { 'X','\0' };
+	char score8[3] = { '1','5','\0' };
+	char score9[2] = { 'X','\0' };
+	char score10[4] ={ 'X','X','X','\0' };*/
+
+	char score1[3] = { '1','5','\0' };
+	char score2[3] = { '1','5','\0' };
+	char score3[3] = { '1','5','\0' };
+	char score4[3] = { '1','5','\0' };
+	char score5[3] = { '1','5','\0' };
+	char score6[3] = { '1','5','\0' };
+	char score7[3] = { '1','5','\0' };
+	char score8[3] = { '1','5','\0' };
+	char score9[3] = { '1','5','\0' };
+	char score10[4] = { 'X','X','X','\0' };
+	
 	char *arrayScore[14] = { score1, score2,score3,score4,score5,score6,score7,score8,score9,score10 };
 	int round = 1;
 	int testpass = 0;

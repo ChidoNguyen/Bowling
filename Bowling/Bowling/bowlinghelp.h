@@ -113,23 +113,32 @@ void process_Score(frame*game, int round) {
 			}
 		}
 		//strike
-		else if (game[x].strike && x != round) {
+		else if (game[x].strike){ //&& x+1 != round) {
 			int strikeScore = 10;
-			//next throw is a strike
-			if (x + 1 < round && game[x + 1].strike)
-				if (x + 2 <= round && game[x + 2].strike) {
+			//2 strike frames
+			if (x + 1 < round && game[x + 2].strike) {
+				if (x + 2 <= round && game[x + 1].strike) {
 					game[x].score = 30;
 					game[x].strike = false;
 				}
-			else if (x + 1 == 9) {
+			}
+			//round 9 2 strike frames
+			else if (x + 1 == 9 && round == 10) {
+					strikeScore += BowlingAsciiToInt(game[x+1].ballOne);
 					strikeScore += BowlingAsciiToInt(game[x+1].ballTwo);
-					strikeScore += BowlingAsciiToInt(game[x+1].ballThree);
 					game[x].score = strikeScore;
 					game[x].strike = false;
 			}
+			//spare frame
 			else if(x+1<round && game[x+1].spare) {
 				strikeScore += BowlingAsciiToInt(game[x + 1].ballOne);
 				strikeScore += BowlingAsciiToInt(game[x + 1].ballTwo)- BowlingAsciiToInt(game[x + 1].ballOne); //registered as spare but needs to be adjusted for what was actually thrown for scoring i.e. 7,/ = ball 1 7 , ball 2 3
+				game[x].score = strikeScore;
+				game[x].strike = false;
+			}
+			else if (x+1 < round){
+				strikeScore += BowlingAsciiToInt(game[x + 1].ballOne);
+				strikeScore += BowlingAsciiToInt(game[x + 1].ballTwo);
 				game[x].score = strikeScore;
 				game[x].strike = false;
 			}

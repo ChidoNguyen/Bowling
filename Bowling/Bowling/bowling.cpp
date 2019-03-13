@@ -13,19 +13,21 @@ int main(int argc, char** argv) {
 	testPrint();
 	////////////////////
 
-	 /*/Game Flow //
+	 //Game Flow //
 	cout << "10-pin bowling scoring application." << endl;
 	//char array to store user inputs + memset to clear out the array//
 	char scoreInput[128];
 	memset(scoreInput, '\0', 128);
 	int roundCount = 1;
 	frame* gameFrames = new frame[10];
-	cin >> scoreInput;
+	while (roundCount <= 10) {
+		cin >> scoreInput;
 
-	processInput(scoreInput, gameFrames,roundCount);
-	process_Score(gameFrames, roundCount);
-	printScore(gameFrames, roundCount);
-	roundCount++;
+		processInput(scoreInput, gameFrames, roundCount);
+		process_Score(gameFrames, roundCount);
+		printScore(gameFrames, roundCount);
+		roundCount++;
+	}
 
 	///////////////////////////////////*/
 
