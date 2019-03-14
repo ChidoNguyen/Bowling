@@ -119,24 +119,31 @@ void process_Score(frame*game, int round) {
 			}
 		}
 		//strike
-		else if (game[x].strike){ //&& x+1 != round) {
+		else if (game[x].strike) { //&& x+1 != round) {
 			int strikeScore = 10;
 			//2 strike frames
 			if (game[x + 1].strike && game[x + 2].strike) {
-					game[x].score = 30;
-					game[x].strike = false;
+				game[x].score = 30;
+				game[x].strike = false;
 			}
 			//round 9 2 strike frames
 			else if (x == 8 && round == 10) {
-					strikeScore += BowlingAsciiToInt(game[x+1].ballOne);
-					strikeScore += BowlingAsciiToInt(game[x+1].ballTwo);
-					game[x].score = strikeScore;
-					game[x].strike = false;
+				strikeScore += BowlingAsciiToInt(game[x + 1].ballOne);
+				strikeScore += BowlingAsciiToInt(game[x + 1].ballTwo);
+				game[x].score = strikeScore;
+				game[x].strike = false;
 			}
 			//spare frame
-			else if(x+1<round && game[x+1].spare) {
+			else if (x + 1 < round && game[x + 1].spare) {
 				strikeScore += BowlingAsciiToInt(game[x + 1].ballOne);
-				strikeScore += BowlingAsciiToInt(game[x + 1].ballTwo)- BowlingAsciiToInt(game[x + 1].ballOne); //registered as spare but needs to be adjusted for what was actually thrown for scoring i.e. 7,/ = ball 1 7 , ball 2 3
+				strikeScore += BowlingAsciiToInt(game[x + 1].ballTwo) - BowlingAsciiToInt(game[x + 1].ballOne); //registered as spare but needs to be adjusted for what was actually thrown for scoring i.e. 7,/ = ball 1 7 , ball 2 3
+				game[x].score = strikeScore;
+				game[x].strike = false;
+			}
+			// 1 strike + open frame following
+			else if (game[x + 1].strike && game[x + 2].score != -1) {
+				strikeScore += BowlingAsciiToInt(game[x + 1].ballOne);
+				strikeScore += BowlingAsciiToInt(game[x + 2].ballOne);
 				game[x].score = strikeScore;
 				game[x].strike = false;
 			}
@@ -173,6 +180,7 @@ Parameters: game frame structure and round number
 Returns: Nothing/Void except screen printout
 */
 void printScore(frame*game, int round) {
+	process_Score(game, round);
 	int scoreSum = 0;
 	for (int x = 0; x < round; x++) {
 		if (x + 1 == round)
