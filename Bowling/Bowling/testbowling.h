@@ -163,7 +163,7 @@ void testScore() {
 /*
 testScore: testing(printScore)
 -Testing to see if strikes and spares are ignored properly until the correct frames have been played
--Expected Final Score output 300 perfect game / conditions 2 = 143 / c3 = 84
+-Expected Final Score output 300 perfect game / conditions 2 = 159 / c3 = 84
 */
 void testPrint() {
 	frame * gameFrames = new frame[10];
@@ -211,8 +211,9 @@ void testPrint() {
 		round++;
 	}
 
-	cout << "If first two frames are empty till recent frame 3; test pass." << endl;
-	cout << "Testing with a perfect game successive frames should be delayed till 2 more throws are achieved for scoring." << endl;
+	cout << "Over all correctness and printed info testing" << endl;
+	cout << "To edit comment in/out different sets of generated data in the test function." << endl;
+	cout << "Expected results are either 300/159/84" << endl;
 
 	delete gameFrames;
 }
