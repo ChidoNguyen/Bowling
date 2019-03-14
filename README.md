@@ -6,7 +6,7 @@ Bowling program is done in C++ on a Windows 10 x64, and Visual Studio 2017 Enter
 
 # To Run
 -  Option 1: Download project files and load the solution into Visual Studio on a Windows machine then at the top Debug > Start Debugging ( F5 for shortcut). Follow on screen prompt to enter data into the program.
--  Option 2: On root github project page navigate to root/Bowling/Release or root/Bowling/Debug and download "Bowling.exe" then run the executable on a Windows machine.
+-  Option 2: On root github project page navigate to root/Bowling/Release and download "Bowling.exe" then run the executable on a Windows machine.
 
 # Misc:
 -  Coded under the assumption that all inputs by the user are within the valid constraints. i.e. [0-9, '/', 'X'] and format is as [@,@,@ / @ / @,@] where @ can be any of the valid characters
