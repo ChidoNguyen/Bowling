@@ -35,6 +35,7 @@ void processInput(char user[], frame * game, int round) {
 	queue<int> balls;
 	//ascii / 0-9 and X 
 	//		47, 48-57, 88
+	//Add our throws into a queue FIFO
 	int inputSize = strlen(user);
 	for (int charIndex = 0; charIndex < inputSize; charIndex++) {
 		int asciiValue = user[charIndex];
@@ -46,7 +47,8 @@ void processInput(char user[], frame * game, int round) {
 		}
 	}
 
-	if (round == 10) {
+	//round 10 and 3 attempts
+	if (round == 10 && balls.size() ==3 ) {
 		int ballsize = balls.size();
 		game[roundIndex].ballOne = balls.front();
 		if (balls.front() == 88) {
@@ -62,6 +64,7 @@ void processInput(char user[], frame * game, int round) {
 			game[roundIndex].ballThree = balls.front();
 		balls.pop();
 	}
+	// normal 2 attempt frames
 	else if(balls.size() == 2) {
 		game[roundIndex].ballOne = balls.front();
 		balls.pop();
@@ -71,6 +74,7 @@ void processInput(char user[], frame * game, int round) {
 		}
 		balls.pop();
 	}
+	//strikes 
 	else {
 		game[roundIndex].ballOne = balls.front();
 		balls.pop();
@@ -86,9 +90,10 @@ Returns: Void/None
 void process_Score(frame*game, int round) {
 
 	for (int x = 0; x < round; x++) {
-		//round 10
+		//round 10 requires some extra manipulation for third attempt and checks
 		if (x+1 == 10) {
 			int score = 0;
+			//first ball strike
 			if (game[x].strike) {
 				score = 10;
 				score += BowlingAsciiToInt(game[x].ballTwo);
@@ -100,6 +105,7 @@ void process_Score(frame*game, int round) {
 				game[x].score = score;
 				game[x].strike = false;
 			}
+			// open frame or spare
 			else {
 				score += BowlingAsciiToInt(game[x].ballOne);
 				if (game[x].ballTwo == 47) {
@@ -116,8 +122,14 @@ void process_Score(frame*game, int round) {
 		else if (game[x].strike){ //&& x+1 != round) {
 			int strikeScore = 10;
 			//2 strike frames
-			if (x + 1 < round && game[x + 2].strike) {
-				if (x + 2 <= round && game[x + 1].strike) {
+			if (x + 2 < round && game[x + 2].strike) {
+				if (x + 1 <= round && game[x + 1].strike) {
+					game[x].score = 30;
+					game[x].strike = false;
+				}
+			}
+			else if (x + 1 < round && game[x + 1].strike) {
+				if (x + 2 <= round && game[x + 2].strike) {
 					game[x].score = 30;
 					game[x].strike = false;
 				}
