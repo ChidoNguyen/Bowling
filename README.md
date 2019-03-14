@@ -5,7 +5,7 @@ Bowling Score Tracker App
 Bowling program is done in C++ on a Windows 10 x64, and Visual Studio 2017 Enterprise.
 
 # To Run
--  Option 1: Download project files and load the solution into Visual Studio on a Windows machine then at the top Debug > Start Debugging ( F5 for shortcut). Follow on screen prompt to enter data into the program.
+-  Option 1: Download project files and load the solution (Bowling.sln) into Visual Studio on a Windows machine then at the top Debug > Start Debugging ( F5 for shortcut). Follow on screen prompt to enter data into the program.
 -  Option 2: On root github project page navigate to root/Bowling/Release and download "Bowling.exe" then run the executable on a Windows machine.
 
 # Misc:
