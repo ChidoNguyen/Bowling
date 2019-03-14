@@ -4,6 +4,9 @@ Bowling Score App
 #include <iostream>
 #include "bowlinghelp.h"
 #include "testbowling.h"
+#include <math.h>
+
+
 
 using std::cin;
 using std::cout;
@@ -35,7 +38,11 @@ int main(int argc, char** argv) {
 	}
 
 	///////////////////////////////////*/
-
-	cout << "Press enter to exit." << endl;
-	cin.ignore();
+	//https://www.geeksforgeeks.org/clearing-the-input-buffer-in-cc/
+	
+	cout << "Press enter to close." << endl;
+	cin.ignore(INT_MAX, '\n');
+	cin.get();
+	delete gameFrames;
+	return 0;
 }

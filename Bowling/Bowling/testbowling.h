@@ -103,6 +103,7 @@ void testInput() {
 	}
 	cout << "Test Case 3: Frame 10 input check for third attempt" << endl;
 	cout << test3p << " of 3 tests PASSED." << endl << endl;
+	delete gameFrames;
 
 }
 /*
@@ -157,6 +158,7 @@ void testScore() {
 	}
 	cout << "Test Case Frame Scores: Correct Frame Scores are recorded." << endl;
 	cout << testpass << " out of 10 frames test PASSED." << endl << endl;
+	delete gameFrames;
 }
 /*
 testScore: testing(printScore)
@@ -174,9 +176,9 @@ void testPrint() {
 	char score7[2] = { 'X','\0' };
 	char score8[2] = { 'X','\0' };
 	char score9[2] = { 'X','\0' };
-	char score10[4] ={ 'X','X','X','\0' };*/
+	char score10[4] = { 'X','X','X','\0' };*/
 	
-	/*char score1[2] = { 'X','\0' };
+	char score1[2] = { 'X','\0' };
 	char score2[3] = { '1','5','\0' };
 	char score3[2] = { 'X','\0' };
 	char score4[3] = { '1','5','\0' };
@@ -185,9 +187,9 @@ void testPrint() {
 	char score7[2] = { 'X','\0' };
 	char score8[3] = { '1','5','\0' };
 	char score9[2] = { 'X','\0' };
-	char score10[4] ={ 'X','X','X','\0' };*/
+	char score10[4] ={ 'X','X','X','\0' };
 
-	char score1[3] = { '1','5','\0' };
+	/*char score1[3] = { '1','5','\0' };
 	char score2[3] = { '1','5','\0' };
 	char score3[3] = { '1','5','\0' };
 	char score4[3] = { '1','5','\0' };
@@ -196,7 +198,7 @@ void testPrint() {
 	char score7[3] = { '1','5','\0' };
 	char score8[3] = { '1','5','\0' };
 	char score9[3] = { '1','5','\0' };
-	char score10[4] = { 'X','X','X','\0' };
+	char score10[4] = { 'X','X','X','\0' };*/
 	
 	char *arrayScore[14] = { score1, score2,score3,score4,score5,score6,score7,score8,score9,score10 };
 	int round = 1;
@@ -211,5 +213,7 @@ void testPrint() {
 
 	cout << "If first two frames are empty till recent frame 3; test pass." << endl;
 	cout << "Testing with a perfect game successive frames should be delayed till 2 more throws are achieved for scoring." << endl;
+
+	delete gameFrames;
 }
 #endif
