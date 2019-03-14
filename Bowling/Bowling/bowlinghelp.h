@@ -91,31 +91,39 @@ void process_Score(frame*game, int round) {
 
 	for (int x = 0; x < round; x++) {
 		//round 10 requires some extra manipulation for third attempt and checks
-		if (x+1 == 10 && game[x].strike) {
-			int score = 0;
-			//first ball strike
-			if (game[x].strike) {
-				score = 10;
-				score += BowlingAsciiToInt(game[x].ballTwo);
-				if (game[x].ballThree == 47) {
-					score += BowlingAsciiToInt(game[x].ballThree) - BowlingAsciiToInt(game[x].ballTwo);
-				}
-				else
-					score += BowlingAsciiToInt(game[x].ballThree);
-				game[x].score = score;
-				game[x].strike = false;
-			}
-			// open frame or spare
-			else {
-				score += BowlingAsciiToInt(game[x].ballOne);
-				if (game[x].ballTwo == 47) {
+		if (x+1 == 10){// && game[x].strike) {
+			if(game[x].strike || game[x].spare){
+				int score = 0;
+				//first ball strike
+				if (game[x].strike) {
 					score = 10;
-					score += BowlingAsciiToInt(game[x].ballThree);
-				}
-				else
 					score += BowlingAsciiToInt(game[x].ballTwo);
+					if (game[x].ballThree == 47) {
+						score += BowlingAsciiToInt(game[x].ballThree) - BowlingAsciiToInt(game[x].ballTwo);
+					}
+					else
+						score += BowlingAsciiToInt(game[x].ballThree);
+					game[x].score = score;
+					game[x].strike = false;
+				}
+				// open frame or spare
+				else {
+					score += BowlingAsciiToInt(game[x].ballOne);
+					if (game[x].ballTwo == 47) {
+						score = 10;
+						score += BowlingAsciiToInt(game[x].ballThree);
+					}
+					else
+						score += BowlingAsciiToInt(game[x].ballTwo);
 
-				game[x].score = score;
+					game[x].score = score;
+				}
+			}
+			else if (game[x].score < 0) {
+				int frameScore = 0;
+				frameScore += BowlingAsciiToInt(game[x].ballOne);
+				frameScore += BowlingAsciiToInt(game[x].ballTwo);
+				game[x].score = frameScore;
 			}
 		}
 		//strike
