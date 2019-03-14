@@ -5,6 +5,7 @@ Bowling Score App
 #include "bowlinghelp.h"
 #include "testbowling.h"
 #include <math.h>
+#include <limits.h>
 
 
 
