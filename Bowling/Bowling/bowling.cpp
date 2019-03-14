@@ -18,6 +18,7 @@ int main(int argc, char** argv) {
 
 	 //Game Flow //
 	cout << "10-pin bowling scoring application." << endl;
+	cout << "Enter scores for each frame X for strike , / for spare, 0-9 with commas in between. i.e. '7,/' or 'X'" << endl;
 	//char array to store user inputs + memset to clear out the array//
 	char scoreInput[128];
 	memset(scoreInput, '\0', 128);
