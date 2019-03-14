@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
 	//testPrint();
 	////////////////////
 
-	 //Game Flow //
+	//Game Flow //
 	cout << "10-pin bowling scoring application." << endl;
 	cout << "Enter scores for each frame X for strike , / for spare, 0-9 with commas in between. i.e. '7,/' or 'X'" << endl;
 	//char array to store user inputs + memset to clear out the array//
@@ -36,11 +36,12 @@ int main(int argc, char** argv) {
 		process_Score(gameFrames, roundCount);
 		printScore(gameFrames, roundCount);
 		roundCount++;
+		memset(scoreInput, '\0', 128);
 	}
+	////////////////////////////////////
 
-	///////////////////////////////////*/
+
 	//https://www.geeksforgeeks.org/clearing-the-input-buffer-in-cc/
-	
 	cout << "Press enter to close." << endl;
 	cin.ignore(INT_MAX, '\n');
 	cin.get();

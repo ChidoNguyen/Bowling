@@ -91,7 +91,7 @@ void process_Score(frame*game, int round) {
 
 	for (int x = 0; x < round; x++) {
 		//round 10 requires some extra manipulation for third attempt and checks
-		if (x+1 == 10) {
+		if (x+1 == 10 && game[x].strike) {
 			int score = 0;
 			//first ball strike
 			if (game[x].strike) {

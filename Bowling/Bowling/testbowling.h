@@ -179,11 +179,11 @@ void testPrint() {
 	char score10[4] = { 'X','X','X','\0' };*/
 	
 	char score1[3] = { '1','/','\0' };
-	char score2[3] = { '1','5','\0' };
+	char score2[3] = { '1','/','\0' };
 	char score3[2] = { 'X','\0' };
-	char score4[3] = { '1','5','\0' };
+	char score4[3] = { '1','3','\0' };
 	char score5[2] = { 'X','\0' };
-	char score6[3] = { '1','5','\0' };
+	char score6[3] = { '1','8','\0' };
 	char score7[2] = { 'X','\0' };
 	char score8[3] = { '1','5','\0' };
 	char score9[2] = { 'X','\0' };
