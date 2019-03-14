@@ -163,7 +163,7 @@ void testScore() {
 /*
 testScore: testing(printScore)
 -Testing to see if strikes and spares are ignored properly until the correct frames have been played
--Expected Final Score output 300 perfect game / conditions 2 = 148 / c3 = 84
+-Expected Final Score output 300 perfect game / conditions 2 = 143 / c3 = 84
 */
 void testPrint() {
 	frame * gameFrames = new frame[10];
@@ -178,7 +178,7 @@ void testPrint() {
 	char score9[2] = { 'X','\0' };
 	char score10[4] = { 'X','X','X','\0' };*/
 	
-	char score1[2] = { 'X','\0' };
+	char score1[3] = { '1','/','\0' };
 	char score2[3] = { '1','5','\0' };
 	char score3[2] = { 'X','\0' };
 	char score4[3] = { '1','5','\0' };

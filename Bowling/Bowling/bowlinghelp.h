@@ -122,20 +122,12 @@ void process_Score(frame*game, int round) {
 		else if (game[x].strike){ //&& x+1 != round) {
 			int strikeScore = 10;
 			//2 strike frames
-			if (x + 2 < round && game[x + 2].strike) {
-				if (x + 1 <= round && game[x + 1].strike) {
+			if (game[x + 1].strike && game[x + 2].strike) {
 					game[x].score = 30;
 					game[x].strike = false;
-				}
-			}
-			else if (x + 1 < round && game[x + 1].strike) {
-				if (x + 2 <= round && game[x + 2].strike) {
-					game[x].score = 30;
-					game[x].strike = false;
-				}
 			}
 			//round 9 2 strike frames
-			else if (x + 1 == 9 && round == 10) {
+			else if (x == 8 && round == 10) {
 					strikeScore += BowlingAsciiToInt(game[x+1].ballOne);
 					strikeScore += BowlingAsciiToInt(game[x+1].ballTwo);
 					game[x].score = strikeScore;
@@ -148,7 +140,7 @@ void process_Score(frame*game, int round) {
 				game[x].score = strikeScore;
 				game[x].strike = false;
 			}
-			else if (x+1 < round){
+			else if (game[x+1].score != -1){
 				strikeScore += BowlingAsciiToInt(game[x + 1].ballOne);
 				strikeScore += BowlingAsciiToInt(game[x + 1].ballTwo);
 				game[x].score = strikeScore;
